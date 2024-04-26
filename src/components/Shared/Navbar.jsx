@@ -86,10 +86,17 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex pb-0">
         <ul className="menu menu-horizontal items-center px-1 pb-0 gap-4">{links}</ul>
       </div>
-      <div className="navbar-end">
-        <Link className="btn bg-white rounded-full" to="/login">
+      <div className="navbar-end text-5xl">
+        <NavLink
+        className=
+        {({ isActive }) =>
+        isActive
+          ? "border-b-2 underline border-black font-bold btn bg-white rounded-full text-base"
+          : "btn bg-white rounded-full text-base"
+      }
+        to="/login">
           Login
-        </Link>
+        </NavLink>
       </div>
     </div>
   );
