@@ -87,6 +87,11 @@ const Navbar = () => {
         <ul className="menu menu-horizontal items-center px-1 pb-0 gap-4">{links}</ul>
       </div>
       <div className="navbar-end text-5xl">
+        <NavLink to='/register'  className={({ isActive }) =>
+          isActive
+            ? "border-b-2 border-black font-bold text-base mr-2"
+            : "p-2 rounded-md text-lg mr-2"
+        }>Register</NavLink>
         <NavLink
         className=
         {({ isActive }) =>

@@ -1,17 +1,41 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FaGithub, FaGoogle, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 
-const Login = () => {
-  const [showPassword, setShowPassword] = useState(false);
+const Register = () => {
+    const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="w-full md:max-w-2xl mx-auto">
       <div className="text-center mt-12">
-        <h2 className="text-5xl font-bold">Login Here</h2>
+        <h2 className="text-5xl font-bold">Register Here</h2>
       </div>
       <div className="mt-5 bg-base-200 rounded-lg">
         <form className=" space-y-4 py-8">
+          <div className="form-control px-5">
+            <label className="label">
+              <span className="text-lg">Name</span>
+            </label>
+            <input
+              className="input input-bordered"
+              type="text"
+              name=""
+              id=""
+              placeholder="input your name"
+            />
+          </div>
+          <div className="form-control px-5">
+            <label className="label">
+              <span className="text-lg">Photo URL</span>
+            </label>
+            <input
+              className="input input-bordered"
+              type="text"
+              name=""
+              id=""
+              placeholder="input your photo URL"
+            />
+          </div>
           <div className="form-control px-5">
             <label className="label">
               <span className="text-lg">Email</span>
@@ -80,9 +104,9 @@ const Login = () => {
 
         <div className="py-5 text-center mb-12">
           <p className="text-xl">
-            Are you new here{" "}
-            <Link to="/register" className="text-[#001220] underline">
-              Please Register
+            Already have an account?{" "}
+            <Link to="/login" className="text-[#001220] underline">
+              Please Login
             </Link>
           </p>
         </div>
@@ -91,4 +115,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
