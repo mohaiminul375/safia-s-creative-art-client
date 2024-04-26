@@ -8,7 +8,7 @@ import { AuthContext } from "../../firebase/FirebaseProvider";
 
 const Register = () => {
   const [error, setError] = useState("");
-  const { createUser } = useContext(AuthContext);
+  const { createUser, loginWithGoogle} = useContext(AuthContext);
 
   const { register, handleSubmit } = useForm();
 
@@ -27,12 +27,23 @@ const Register = () => {
     }
 
     createUser(email, password)
-    .then((result) => {
-      console.log(result.user);
-    })
-    .catch((error)=>{
-        console.log(error.message)
-    })
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  // google login
+  const handleGoogleLogin = () => {
+    loginWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   const handleRemoveError = () => {
@@ -143,7 +154,10 @@ const Register = () => {
         </form>
         <div className="flex justify-center">
           <div className="space-y-3">
-            <button className="flex items-center text-xl border border-[#001220] py-2 bg-[#001220] text-white w-fit px-2 rounded-md">
+            <button
+              onClick={handleGoogleLogin}
+              className="flex items-center text-xl border border-[#001220] py-2 bg-[#001220] text-white w-fit px-2 rounded-md"
+            >
               <FaGoogle />
               Login in with Google
             </button>
