@@ -1,17 +1,61 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaGithub, FaGoogle, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { FaCircleXmark } from "react-icons/fa6";
 import { Tooltip } from "react-tooltip";
+import { useForm } from "react-hook-form";
+import { AuthContext } from "../../firebase/FirebaseProvider";
 
 const Register = () => {
-    const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const { createUser } = useContext(AuthContext);
+
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    const { name, photo, email, password } = data;
+    setError("");
+    console.log(data);
+    if (password.length < 6) {
+      setError("Password must be 6 character or more");
+      return;
+    } else if (!/^(?=.*[a-z])(?=.*[A-Z])/.test(password)) {
+      setError(
+        "Password must contain at least one uppercase letter and one lowercase letter."
+      );
+      return;
+    }
+
+    createUser(email, password)
+    .then((result) => {
+      console.log(result.user);
+    })
+    .catch((error)=>{
+        console.log(error.message)
+    })
+  };
+
+  const handleRemoveError = () => {
+    setError("");
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="w-full md:max-w-2xl mx-auto">
       <div className="text-center mt-12">
         <h2 className="text-5xl font-bold">Register Here</h2>
       </div>
       <div className="mt-5 bg-base-200 rounded-lg">
-        <form className=" space-y-4 py-8">
+        {error && (
+          <p className="text-center text-red-700 font-bold flex items-center justify-center gap-2">
+            {error}
+            <FaCircleXmark onClick={handleRemoveError} />
+          </p>
+        )}
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className=" space-y-2 pb-8 pt-3"
+        >
           <div className="form-control px-5">
             <label className="label">
               <span className="text-lg">Name</span>
@@ -22,6 +66,8 @@ const Register = () => {
               name=""
               id=""
               placeholder="input your name"
+              {...register("name")}
+              required
             />
           </div>
           <div className="form-control px-5">
@@ -34,6 +80,8 @@ const Register = () => {
               name=""
               id=""
               placeholder="input your photo URL"
+              {...register("photo")}
+              required
             />
           </div>
           <div className="form-control px-5">
@@ -46,6 +94,8 @@ const Register = () => {
               name=""
               id=""
               placeholder="input your email"
+              {...register("email")}
+              required
             />
           </div>
           <div className="form-control px-5 relative">
@@ -58,6 +108,8 @@ const Register = () => {
               name=""
               id=""
               placeholder="input your password"
+              {...register("password")}
+              required
             />
             <span
               onClick={() => setShowPassword(!showPassword)}

@@ -76,30 +76,37 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex items-center gap-2">
-          <img className="w-16" src={logo} alt="" />
-          <div>
-            <h2 className="font-rancho text-3xl font-bold">Safia's </h2>
-            <small className="italic">creative art studio</small>
-          </div>
+            <img className="w-16" src={logo} alt="" />
+            <div>
+              <h2 className="font-rancho text-3xl font-bold">Safia's </h2>
+              <small className="italic">creative art studio</small>
+            </div>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex pb-0">
-        <ul className="menu menu-horizontal items-center px-1 pb-0 gap-4">{links}</ul>
+        <ul className="menu menu-horizontal items-center px-1 pb-0 gap-4">
+          {links}
+        </ul>
       </div>
       <div className="navbar-end text-5xl">
-        <NavLink to='/register'  className={({ isActive }) =>
-          isActive
-            ? "border-b-2 border-black font-bold text-base mr-2"
-            : "p-2 rounded-md text-lg mr-2"
-        }>Register</NavLink>
         <NavLink
-        className=
-        {({ isActive }) =>
-        isActive
-          ? "border-b-2 underline border-black font-bold btn bg-white rounded-full text-base"
-          : "btn bg-white rounded-full text-base"
-      }
-        to="/login">
+          to="/register"
+          className={({ isActive }) =>
+            isActive
+              ? "border-b-2 border-black font-bold text-base mr-2"
+              : "p-2 rounded-md text-lg mr-2"
+          }
+        >
+          Register
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "border-b-2 underline border-black font-bold btn bg-white rounded-full text-base"
+              : "btn bg-white rounded-full text-base"
+          }
+          to="/login"
+        >
           Login
         </NavLink>
       </div>
