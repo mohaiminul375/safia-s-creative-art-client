@@ -9,5 +9,5 @@
 - react router dom
 - tailwind css
 - Daisy UI
-
-
+- react icon
+- swiper slider
