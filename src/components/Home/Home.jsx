@@ -1,18 +1,20 @@
+import BrowseCollection from "./BrowseCollection";
+import FeaturedProducts from "./FeaturedProducts";
+import OurClient from "./OurClient";
+import OurTeam from "./OurTeam";
+import SomeFeatures from "./SomeFeatures";
+
 const Home = () => {
   return (
     <div>
       <h2>This is home page</h2>
-      {/* <div role="tablist" className="tabs tabs-lifted">
-        <a role="tab" className="tab">
-          Tab 1
-        </a>
-        <a role="tab" className="tab tab-active">
-          Tab 2
-        </a>
-        <a role="tab" className="tab">
-          Tab 3
-        </a>
-      </div> */}
+        <SomeFeatures></SomeFeatures>
+    <div className="w-full md:max-w-6xl mx-auto">
+        <FeaturedProducts></FeaturedProducts>
+        <BrowseCollection></BrowseCollection>
+        <OurClient></OurClient>
+        <OurTeam></OurTeam>
+    </div>
     </div>
   );
 };
