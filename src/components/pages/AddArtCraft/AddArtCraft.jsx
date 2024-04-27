@@ -56,7 +56,7 @@ const AddArtCraft = () => {
                   id="userName"
                   placeholder="input user name"
                   defaultValue={user?.displayName}
-                  {...register(`${user?.displayName}`)}
+                  {...register('userName')}
                   readOnly
                 />
               </div>

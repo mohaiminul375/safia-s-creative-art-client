@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 const SingleItem = ({ craft }) => {
-  console.log(craft);
+  // console.log(craft);
   const {
     _id,
     item_name,

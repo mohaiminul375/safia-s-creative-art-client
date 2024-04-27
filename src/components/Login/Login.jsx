@@ -1,15 +1,18 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaGithub, FaGoogle, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import { AuthContext } from "../../firebase/FirebaseProvider";
 import { FaCircleXmark } from "react-icons/fa6";
-
+import { Bounce, ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
   const {loginWithGoogle,loginWithGithub,loginUser}=useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
@@ -28,9 +31,31 @@ const Login = () => {
     loginUser(email,password)
     .then((result)=>{
       console.log(result.user)
+      toast.success('login Successfully', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        });
+      setTimeout(() => {
+
+        navigate(location?.state ? location.state :'/')
+      }, 2000);
+      
     })
     .catch((error)=>{
       console.error(error.message)
+      if(error.message == 'Firebase: Error (auth/invalid-credential).'){
+        setError('Incorrect email or password')
+      }
+      else {
+        setError(error.message);
+      }
     })
   };
 
@@ -39,9 +64,25 @@ const Login = () => {
     loginWithGoogle()
       .then((result) => {
         console.log(result.user);
+        toast.success('login Successfully', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          });
+        setTimeout(() => {
+  
+          navigate(location?.state ? location.state :'/')
+        }, 2000);
       })
       .catch((error) => {
         console.log(error.message);
+        setError(error.message)
       });
   };
   // github login
@@ -50,9 +91,25 @@ const Login = () => {
     loginWithGithub()
       .then((result) => {
         console.log(result.user);
+        toast.success('login Successfully', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          });
+        setTimeout(() => {
+  
+          navigate(location?.state ? location.state :'/')
+        }, 2000);
       })
       .then((error) => {
         console.log(error.message);
+        setError(error.message)
       });
   };
 
@@ -99,6 +156,7 @@ const Login = () => {
               id=""
               placeholder="input your password"
               {...register('password')}
+              required
             />
             <span
               onClick={() => setShowPassword(!showPassword)}
@@ -152,6 +210,7 @@ const Login = () => {
           </p>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

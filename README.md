@@ -13,4 +13,5 @@
 - swiper slider
 - react-loader-spinner
 - sweet alert2
+- react toastify
 <!-- - react tooltip -->

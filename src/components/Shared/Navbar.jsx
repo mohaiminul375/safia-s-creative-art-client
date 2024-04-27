@@ -3,7 +3,7 @@ import logo from "../../assets/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../firebase/FirebaseProvider";
 const Navbar = () => {
-  const { user,logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   console.log("user from navbar", user);
   const links = (
     <>
@@ -95,7 +95,7 @@ const Navbar = () => {
       <div className="navbar-end text-5xl">
         {user ? (
           <>
-            <div className="dropdown dropdown-end">
+            {/* <div className="dropdown dropdown-end">
               <div
                 tabIndex={0}
                 role="button"
@@ -116,8 +116,32 @@ const Navbar = () => {
                <p className="text-center">{user?.displayName}</p>
                <button onClick={logOut} className="btn mt-2">Logout</button>
               </div>
+            </div> */}
+             <div className="dropdown dropdown-end ">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar tooltip tooltip-left"
+              data-tip={user?.displayName}
+            >
+              <div className="w-10 rounded-full">
+                <img alt="User photo" src={user?.photoURL} />
+              </div>
             </div>
-           
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content rounded-box w-52 bg-[#149777]"
+            >
+              <div>
+                <h5 className="text-2xl">Profile Of</h5>
+                <p className="text-center text-xl mb-3">{user?.displayName}</p>
+              </div>
+
+              <button className="btn" onClick={logOut}>
+                Logout 
+              </button>
+            </ul>
+          </div>
           </>
         ) : (
           <>
