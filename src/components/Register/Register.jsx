@@ -8,7 +8,9 @@ import { AuthContext } from "../../firebase/FirebaseProvider";
 
 const Register = () => {
   const [error, setError] = useState("");
-  const { createUser, loginWithGoogle} = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const { createUser, loginWithGoogle, loginWithGithub } =
+    useContext(AuthContext);
 
   const { register, handleSubmit } = useForm();
 
@@ -45,12 +47,23 @@ const Register = () => {
         console.log(error.message);
       });
   };
+  // github login
+
+  const handleGithubLogin = () => {
+    loginWithGithub()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .then((error) => {
+        console.log(error.message);
+      });
+  };
 
   const handleRemoveError = () => {
     setError("");
   };
 
-  const [showPassword, setShowPassword] = useState(false);
+ 
   return (
     <div className="w-full md:max-w-2xl mx-auto">
       <div className="text-center mt-12">
@@ -161,7 +174,7 @@ const Register = () => {
               <FaGoogle />
               Login in with Google
             </button>
-            <button className="flex items-center text-xl border border-[#001220] py-2 bg-[#001220] text-white w-fit px-2 rounded-md">
+            <button onClick={handleGithubLogin} className="flex items-center text-xl border border-[#001220] py-2 bg-[#001220] text-white w-fit px-2 rounded-md">
               <FaGithub />
               Login in with Github
             </button>

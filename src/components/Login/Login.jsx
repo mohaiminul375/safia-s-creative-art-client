@@ -1,17 +1,79 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
 import { FaGithub, FaGoogle, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
+import { AuthContext } from "../../firebase/FirebaseProvider";
+import { FaCircleXmark } from "react-icons/fa6";
 
 const Login = () => {
+  const {loginWithGoogle,loginWithGithub,loginUser}=useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    const { email, password } = data;
+    setError("");
+    console.log(data);
+    if (password.length < 6) {
+      setError("Password must be 6 character or more");
+      return;
+    } else if (!/^(?=.*[a-z])(?=.*[A-Z])/.test(password)) {
+      setError(
+        "Password must contain at least one uppercase letter and one lowercase letter."
+      );
+      return;
+    }
+    loginUser(email,password)
+    .then((result)=>{
+      console.log(result.user)
+    })
+    .catch((error)=>{
+      console.error(error.message)
+    })
+  };
+
+  // google login
+  const handleGoogleLogin = () => {
+    loginWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+  // github login
+
+  const handleGithubLogin = () => {
+    loginWithGithub()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .then((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const handleRemoveError = () => {
+    setError("");
+  };
+
+
   return (
     <div className="w-full md:max-w-2xl mx-auto">
       <div className="text-center mt-12">
         <h2 className="text-5xl font-bold">Login Here</h2>
       </div>
       <div className="mt-5 bg-base-200 rounded-lg">
-        <form className=" space-y-4 py-8">
+      {error && (
+          <p className="text-center text-red-700 font-bold flex items-center justify-center gap-2">
+            {error}
+            <FaCircleXmark onClick={handleRemoveError} />
+          </p>
+        )}
+        <form onSubmit={handleSubmit(onSubmit)} className=" space-y-4 py-8">
           <div className="form-control px-5">
             <label className="label">
               <span className="text-lg">Email</span>
@@ -22,6 +84,8 @@ const Login = () => {
               name=""
               id=""
               placeholder="input your email"
+              {...register('email')}
+              required
             />
           </div>
           <div className="form-control px-5 relative">
@@ -34,6 +98,7 @@ const Login = () => {
               name=""
               id=""
               placeholder="input your password"
+              {...register('password')}
             />
             <span
               onClick={() => setShowPassword(!showPassword)}
@@ -67,11 +132,11 @@ const Login = () => {
         </form>
         <div className="flex justify-center">
           <div className="space-y-3">
-            <button className="flex items-center text-xl border border-[#001220] py-2 bg-[#001220] text-white w-fit px-2 rounded-md">
+            <button onClick={handleGoogleLogin} className="flex items-center text-xl border border-[#001220] py-2 bg-[#001220] text-white w-fit px-2 rounded-md">
               <FaGoogle />
               Login in with Google
             </button>
-            <button className="flex items-center text-xl border border-[#001220] py-2 bg-[#001220] text-white w-fit px-2 rounded-md">
+            <button onClick={handleGithubLogin} className="flex items-center text-xl border border-[#001220] py-2 bg-[#001220] text-white w-fit px-2 rounded-md">
               <FaGithub />
               Login in with Github
             </button>
