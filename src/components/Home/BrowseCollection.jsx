@@ -9,7 +9,7 @@ const BrowseCollection = () => {
     .then(data=>{console.log(data)
     setCategories(data)
     });
-  })
+  },[])
   return (
     <div className="mt-28">
       <div className="flex justify-between">

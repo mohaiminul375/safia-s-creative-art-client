@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
 const SingleItem = ({ craft }) => {
   console.log(craft);
   const {
@@ -23,8 +23,8 @@ const SingleItem = ({ craft }) => {
         </div>
         <div className="space-y-2">
           <a rel="noopener noreferrer" href="#" className="block">
-            <h3 className="text-xl font-semibold dark:text-[#001220] hover:underline">
-              {item_name}
+            <h3 className="text-xl font-semibold dark:text-[#001220] hover:underline tooltip tooltip-bottom" data-tip={item_name}>
+              {item_name.length>30? item_name.slice(0,20)+"...": item_name}
             </h3>
           </a>
 
@@ -55,5 +55,7 @@ const SingleItem = ({ craft }) => {
     </div>
   );
 };
-
+SingleItem.propType = {
+    craft: PropTypes.object,
+  };
 export default SingleItem;

@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
 const CategoryCard = ({ category }) => {
-  const { category_name } = category;
+  const { category_name,photo } = category;
   return (
     <div className="max-w-lg p-4 shadow-md dark:bg-gray-50 dark:text-gray-800">
       <Link to={`/${category_name}`}>
         <div className="space-y-4">
           <div className="space-y-2">
             <img
-              src="https://source.unsplash.com/random/480x360/?4"
+              src={photo}
               alt=""
               className="block object-cover object-center w-full rounded-md h-72 dark:bg-gray-500"
             />
@@ -26,5 +26,7 @@ const CategoryCard = ({ category }) => {
     </div>
   );
 };
-
+CategoryCard.propType = {
+  category: PropTypes.object,
+};
 export default CategoryCard;
