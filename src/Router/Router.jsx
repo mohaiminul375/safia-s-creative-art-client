@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/addArt&Craft",
-        element: <AddArtCraft></AddArtCraft>,
+        element:<PrivateRoute> <AddArtCraft></AddArtCraft></PrivateRoute>,
       },
 
       {

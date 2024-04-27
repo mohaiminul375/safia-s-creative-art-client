@@ -9,7 +9,7 @@ import { AuthContext } from "../../firebase/FirebaseProvider";
 const Register = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { createUser, loginWithGoogle, loginWithGithub } =
+  const { createUser, loginWithGoogle, loginWithGithub,updateUserProfile } =
     useContext(AuthContext);
 
   const { register, handleSubmit } = useForm();
@@ -31,6 +31,7 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
+        updateUserProfile(name, photo);
       })
       .catch((error) => {
         console.log(error.message);
@@ -63,7 +64,6 @@ const Register = () => {
     setError("");
   };
 
- 
   return (
     <div className="w-full md:max-w-2xl mx-auto">
       <div className="text-center mt-12">
@@ -174,7 +174,10 @@ const Register = () => {
               <FaGoogle />
               Login in with Google
             </button>
-            <button onClick={handleGithubLogin} className="flex items-center text-xl border border-[#001220] py-2 bg-[#001220] text-white w-fit px-2 rounded-md">
+            <button
+              onClick={handleGithubLogin}
+              className="flex items-center text-xl border border-[#001220] py-2 bg-[#001220] text-white w-fit px-2 rounded-md"
+            >
               <FaGithub />
               Login in with Github
             </button>
