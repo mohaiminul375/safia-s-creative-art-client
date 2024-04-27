@@ -11,5 +11,5 @@
 - Daisy UI
 - react icon
 - swiper slider
-
-- react tooltip
+- react-loader-spinner
+<!-- - react tooltip -->

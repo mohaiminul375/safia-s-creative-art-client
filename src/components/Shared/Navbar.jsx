@@ -2,9 +2,8 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../firebase/FirebaseProvider";
-import { Tooltip } from "react-tooltip";
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user,logOut } = useContext(AuthContext);
   console.log("user from navbar", user);
   const links = (
     <>
@@ -115,7 +114,7 @@ const Navbar = () => {
               >
                <p className="text-center text-xl font-bold">Profile of:</p>
                <p className="text-center">{user?.email}</p>
-               <button className="btn mt-2">Logout</button>
+               <button onClick={logOut} className="btn mt-2">Logout</button>
               </div>
             </div>
            

@@ -6,6 +6,7 @@ import AddArtCraft from "../components/pages/AddArtCraft/AddArtCraft";
 import MyArtCraft from "../components/pages/MyArtCraft/MyArtCraft";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ export const router = createBrowserRouter([
 
       {
         path: "/myArt&Craft",
-        element: <MyArtCraft></MyArtCraft>,
+        element: <PrivateRoute><MyArtCraft></MyArtCraft></PrivateRoute>
       },
       {
         path:'/login',
