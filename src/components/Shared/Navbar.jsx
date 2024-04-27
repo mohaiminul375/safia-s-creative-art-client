@@ -113,7 +113,7 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
                <p className="text-center text-xl font-bold">Profile of:</p>
-               <p className="text-center">{user?.email}</p>
+               <p className="text-center">{user?.displayName}</p>
                <button onClick={logOut} className="btn mt-2">Logout</button>
               </div>
             </div>

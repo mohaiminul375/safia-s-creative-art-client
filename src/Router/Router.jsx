@@ -7,6 +7,7 @@ import MyArtCraft from "../components/pages/MyArtCraft/MyArtCraft";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import PrivateRoute from "./PrivateRoute";
+import CategoryData from "../components/pages/CategoryData/CategoryData";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,11 @@ export const router = createBrowserRouter([
       {
         path: "/myArt&Craft",
         element: <PrivateRoute><MyArtCraft></MyArtCraft></PrivateRoute>
+      },
+      {
+        path:'/:category',
+        element:<CategoryData></CategoryData>,
+        loader:({params})=>fetch(`http://localhost:5000/AllArt&Crafts/${params.category}`)
       },
       {
         path:'/login',
