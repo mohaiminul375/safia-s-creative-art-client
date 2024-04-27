@@ -1,6 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../../firebase/FirebaseProvider";
+import { Tooltip } from "react-tooltip";
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+  console.log("user from navbar", user);
   const links = (
     <>
       <NavLink
@@ -76,11 +81,11 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex items-center gap-2">
-            <img className="w-16" src={logo} alt="" />
-            <div>
-              <h2 className="font-rancho text-3xl font-bold">Safia's </h2>
-              <small className="italic">creative art studio</small>
-            </div>
+          <img className="w-16" src={logo} alt="" />
+          <div>
+            <h2 className="font-rancho text-3xl font-bold">Safia's </h2>
+            <small className="italic">creative art studio</small>
+          </div>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex pb-0">
@@ -89,26 +94,57 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end text-5xl">
-        <NavLink
-          to="/register"
-          className={({ isActive }) =>
-            isActive
-              ? "border-b-2 border-black font-bold text-base mr-2"
-              : "p-2 rounded-md text-lg mr-2"
-          }
-        >
-          Register
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? "border-b-2 underline border-black font-bold btn bg-white rounded-full text-base"
-              : "btn bg-white rounded-full text-base"
-          }
-          to="/login"
-        >
-          Login
-        </NavLink>
+        {user ? (
+          <>
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar tooltip tooltip-left" data-tip={user?.email}
+              >
+                <div className="w-10 rounded-full ">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  />
+                </div>
+              </div>
+              <div
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+               <p className="text-center text-xl font-bold">Profile of:</p>
+               <p className="text-center">{user?.email}</p>
+               <button className="btn mt-2">Logout</button>
+              </div>
+            </div>
+           
+          </>
+        ) : (
+          <>
+            {" "}
+            <NavLink
+              to="/register"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-b-2 border-black font-bold text-base mr-2"
+                  : "p-2 rounded-md text-lg mr-2"
+              }
+            >
+              Register
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "border-b-2 underline border-black font-bold btn bg-white rounded-full text-base"
+                  : "btn bg-white rounded-full text-base"
+              }
+              to="/login"
+            >
+              Login
+            </NavLink>
+          </>
+        )}
       </div>
     </div>
   );
