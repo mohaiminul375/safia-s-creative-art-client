@@ -8,6 +8,7 @@ import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import CategoryData from "../components/pages/CategoryData/CategoryData";
+import ArtCraftDetails from "../components/pages/ArtCraftDetails/ArtCraftDetails";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +32,11 @@ export const router = createBrowserRouter([
       {
         path: "/myArt&Craft",
         element: <PrivateRoute><MyArtCraft></MyArtCraft></PrivateRoute>
+      },
+      {
+      path:'/Art&CraftDetails/:id',
+      element:<PrivateRoute><ArtCraftDetails></ArtCraftDetails></PrivateRoute>,
+      loader:({params})=>fetch(`http://localhost:5000/Art&CraftDetails/${params.id}`)
       },
       {
         path:'/:category',
