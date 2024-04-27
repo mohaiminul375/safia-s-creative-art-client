@@ -1,26 +1,36 @@
-import { useState } from "react";
-import Dropdown from "react-dropdown";
+import { useContext, useState } from "react";
 import "react-dropdown/style.css";
+import { AuthContext } from "../../../firebase/FirebaseProvider";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 const AddArtCraft = () => {
-  const [categoryOption, setCategoryOption] = useState("");
-  const [customizeOption, setCustomizeOption] = useState("");
-  console.log("options", categoryOption);
-  console.log("options", customizeOption);
-  const categoryOptions = [
-    { value: "Embroidery", label: "Embroidery" },
-    { value: "Knitting & Crocheting", label: "Knitting & Crocheting" },
-    { value: "Quilting", label: "Quilting" },
-    { value: "Beadwork", label: "Beadwork" },
-    { value: "Tie-Dyeing", label: "Tie-Dyeing" },
-    { value: "Macrame", label: "Macrame" },
-  ];
+  const { user } = useContext(AuthContext);
 
-  const customizeOptions = [
-    { value: "yes", label: "yes" },
-    { value: "no", label: "no" },
-  ];
-  const customizeDefaultOption = customizeOptions[0];
-  const categoryDefaultOption = categoryOptions[0];
+  // react hook form
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    fetch("http://localhost:5000/allArt&Crafts", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          reset();
+          Swal.fire({
+            title: "Successful!",
+            text: "Your added successfully!",
+            icon: "success"
+          });
+        }
+      });
+  };
+
   return (
     <div>
       <div className="mt-12 w-full md:max-w-6xl mx-auto border bg-base-200 p-3 rounded-lg">
@@ -32,7 +42,7 @@ const AddArtCraft = () => {
           </p>
         </div>
         <div className="mt-5">
-          <form className="space-y-3">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
             {/* row1 */}
             <div className="md:flex gap-5">
               <div className="form-control md:w-1/2">
@@ -45,6 +55,9 @@ const AddArtCraft = () => {
                   name="userName"
                   id="userName"
                   placeholder="input user name"
+                  defaultValue={user?.displayName}
+                  {...register(`${user?.displayName}`)}
+                  readOnly
                 />
               </div>
               <div className="form-control md:w-1/2">
@@ -57,6 +70,9 @@ const AddArtCraft = () => {
                   name="email"
                   id="email"
                   placeholder="input user email"
+                  defaultValue={user?.email}
+                  {...register("userEmail")}
+                  readOnly
                 />
               </div>
             </div>
@@ -72,19 +88,26 @@ const AddArtCraft = () => {
                   name="itemName"
                   id="itemName"
                   placeholder="input your item name"
+                  {...register("item_name")}
+                  required
                 />
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
                   <span>Please Select a sub category</span>
                 </label>
-                <Dropdown
-                  className=""
-                  options={categoryOptions}
-                  value={categoryDefaultOption}
-                  onChange={(e) => setCategoryOption(e.value)}
-                  placeholder="Select an option"
-                />
+                <select
+                  required
+                  {...register("subcategory_Name")}
+                  className="select select-bordered w-full"
+                >
+                  <option>Embroidery</option>
+                  <option>Knitting & Crocheting</option>
+                  <option>Quilting</option>
+                  <option>Beadwork</option>
+                  <option>Tie-Dyeing</option>
+                  <option>Macrame</option>
+                </select>
               </div>
             </div>
             {/* row3 */}
@@ -95,10 +118,12 @@ const AddArtCraft = () => {
                 </label>
                 <input
                   className="input input-bordered"
-                  type="number"
+                  type="text"
                   name="price"
                   id="price"
                   placeholder="input price"
+                  {...register("price")}
+                  required
                 />
               </div>
               <div className="form-control md:w-1/2">
@@ -107,10 +132,12 @@ const AddArtCraft = () => {
                 </label>
                 <input
                   className="input input-bordered"
-                  type="number"
+                  type="text"
                   name="rating"
                   id="rating"
+                  {...register("rating")}
                   placeholder="input rating"
+                  required
                 />
               </div>
             </div>
@@ -120,13 +147,14 @@ const AddArtCraft = () => {
                 <label className="label">
                   <span>Customization</span>
                 </label>
-                <Dropdown
-                  className=""
-                  options={customizeOptions}
-                  value={customizeDefaultOption}
-                  onChange={(e) => setCustomizeOption(e.value)}
-                  placeholder="Select an option"
-                />
+                <select
+                  required
+                  {...register("customization")}
+                  className="select select-bordered w-full"
+                >
+                  <option>yes</option>
+                  <option>no</option>
+                </select>
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
@@ -138,6 +166,8 @@ const AddArtCraft = () => {
                   name="time"
                   id="item"
                   placeholder="input processing time"
+                  {...register("processing_time")}
+                  required
                 />
               </div>
             </div>
@@ -147,13 +177,14 @@ const AddArtCraft = () => {
                 <label className="label">
                   <span>Stock status</span>
                 </label>
-                <input
-                  className="input input-bordered"
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="stock status"
-                />
+                <select
+                  required
+                  {...register("stockStatus")}
+                  className="select select-bordered w-full"
+                >
+                  <option>In stock</option>
+                  <option>Made to Order</option>
+                </select>
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
@@ -164,12 +195,29 @@ const AddArtCraft = () => {
                   type="text"
                   name="photo"
                   id="photo"
+                  {...register("photo")}
                   placeholder="input your photo URL"
+                  required
                 />
               </div>
             </div>
             <div className="form-control">
-              <input className="w-full bg-[#001220] text-white font-rancho text-xl py-3 rounded-md" type="submit" value="Add Item" />
+              <label className="label">Description</label>
+              <textarea
+                className="input input-bordered"
+                name="description"
+                id="description"
+                cols="5"
+                rows="30"
+                {...register("description")}
+              ></textarea>
+            </div>
+            <div className="form-control">
+              <input
+                className="w-full cursor-pointer bg-[#001220] text-white font-rancho text-xl py-3 rounded-md"
+                type="submit"
+                value="Add Item"
+              />
             </div>
           </form>
         </div>
