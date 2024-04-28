@@ -93,7 +93,7 @@ const CustomizedDataCard = ({ singleData,myData,setMyData }) => {
               <FaRegTrashCan />
             </button>
           </div>
-          <UpdateData id={_id} Dialog={Dialog}></UpdateData>
+          <UpdateData singleData={singleData} id={_id} Dialog={Dialog}></UpdateData>
         </div>
       </div>
     </div>
