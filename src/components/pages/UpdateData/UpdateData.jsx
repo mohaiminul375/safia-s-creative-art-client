@@ -20,7 +20,7 @@ const UpdateData = ({ singleData }) => {
   const onSubmit = (updateData) => {
     console.log("form data", updateData);
 
-    fetch(`http://localhost:5000/Art&Crafts/${_id}`, {
+    fetch(`https://safias-creative-art-server-bmbwsw0zg-mohaiminul375s-projects.vercel.app/Art&Crafts/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -31,16 +31,17 @@ const UpdateData = ({ singleData }) => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          Swal.fire({
-            title: "successful!",
-            text: "Art and Craft item has been updated!",
-            icon: "success",
-            customClass:{
-              container:'update-swal',
-              title:'txt'
-
-            }
-          });
+          toast.success('🦄 Wow so easy!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+            });
           // location.reload();
         }
       });

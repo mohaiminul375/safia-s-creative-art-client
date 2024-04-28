@@ -21,8 +21,8 @@ const Footer = () => {
           <p className="flex items-center text-xl">
             <CiLocationOn className="text-[#001220]"/> Mirpur,DOHS Dhaka
           </p>
-          <p className="">Phone: 09638-0019865</p>
-          <p className="">email: chayare20@gmail.com</p>
+          <p className="">Phone: 09636-969696</p>
+          <p className="">email: safia7540@gmail.com</p>
         </nav>
         <nav className="">
           <h6 className="text-xl font-bold text-[#001220]">

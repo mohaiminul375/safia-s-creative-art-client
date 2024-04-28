@@ -10,7 +10,7 @@ const AddArtCraft = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    fetch("http://localhost:5000/allArt&Crafts", {
+    fetch("https://safias-creative-art-server-bmbwsw0zg-mohaiminul375s-projects.vercel.app/allArt&Crafts", {
       method: "POST",
       headers: {
         "content-type": "application/json",

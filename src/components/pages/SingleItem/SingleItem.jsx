@@ -12,9 +12,9 @@ const SingleItem = ({craft }) => {
     stockStatus,
   } = craft;
   return (
-    <div className="max-w-lg p-4 shadow-md dark:bg-gray-50 dark:text-gray-800">
+    <div className="max-w-lg p-4 shadow-md dark:bg-gray-50 dark:text-gray-800 hover:transition-transform hover:duration-150 hover:ease-in-out">
       <div className="space-y-4">
-        <div className="space-y-2">
+        <div className="space-y-2 ">
           <img
             src={photo}
             alt=""
@@ -22,11 +22,10 @@ const SingleItem = ({craft }) => {
           />
         </div>
         <div className="space-y-2">
-          <a rel="noopener noreferrer" href="#" className="block">
             <h3 className="text-xl font-semibold dark:text-[#001220] hover:underline tooltip tooltip-bottom" data-tip={item_name}>
               {item_name.length>30? item_name.slice(0,20)+"...": item_name}
             </h3>
-          </a>
+         
 
           <p className="dark:text-gray-600 text-lg">
             <span className="font-bold text-[#001220]">Category:</span>{" "}

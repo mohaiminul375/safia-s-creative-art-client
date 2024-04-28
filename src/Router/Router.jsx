@@ -38,12 +38,12 @@ export const router = createBrowserRouter([
       {
       path:'/Art&CraftDetails/:id',
       element:<PrivateRoute><ArtCraftDetails></ArtCraftDetails></PrivateRoute>,
-      loader:({params})=>fetch(`http://localhost:5000/Art&Crafts/${params.id}`)
+      loader:({params})=>fetch(`https://safias-creative-art-server-bmbwsw0zg-mohaiminul375s-projects.vercel.app/Art&Crafts/${params.id}`)
       },
       {
-        path:'/category/:category',
+        path:'/category/:categoryName',
         element:<CategoryData></CategoryData>,
-        loader:({params})=>fetch(`http://localhost:5000/AllArt&Crafts/${params.category}`)
+        loader:({params})=>fetch(`https://safias-creative-art-server-bmbwsw0zg-mohaiminul375s-projects.vercel.app/AllArt&Crafts/${params.categoryName}`)
       },
       {
         path:'/login',

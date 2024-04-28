@@ -9,7 +9,7 @@ const MyArtCraft = () => {
   // console.log('user in cc',user?.email)
   const email=user?.email
   useEffect(() => {
-    fetch(`http://localhost:5000/user/${email}`)
+    fetch(`https://safias-creative-art-server-bmbwsw0zg-mohaiminul375s-projects.vercel.app/user/${email}`)
     .then(res=>res.json())
     .then(data=>{
       console.log(data)
@@ -18,7 +18,7 @@ const MyArtCraft = () => {
   }, []);
 
   useEffect(()=>{
-    fetch(`http://localhost:5000/user/${email}/${customization}`)
+    fetch(`https://safias-creative-art-server-bmbwsw0zg-mohaiminul375s-projects.vercel.app/user/${email}/${customization}`)
     .then(res=>res.json())
     .then(data=>{console.log(data)
       setMyData(data)
