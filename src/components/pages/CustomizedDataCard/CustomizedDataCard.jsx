@@ -1,42 +1,72 @@
-const CustomizedDataCard = () => {
+import { FaEdit } from "react-icons/fa";
+import { FaRegTrashCan } from "react-icons/fa6";
+import UpdateData from "../UpdateData/UpdateData";
+import { Modal } from "react-daisyui";
+
+const CustomizedDataCard = ({ singleData }) => {
+ 
+  const { _id, item_name, customization, photo, price, rating, stockStatus } =
+    singleData;
+
+    const {
+        Dialog,
+        handleShow
+      } = Modal.useDialog();
   return (
     <div className="max-w-lg p-4 shadow-md dark:bg-gray-50 dark:text-gray-800">
-      <div className="flex justify-between pb-4 border-bottom">
-        <div className="flex items-center">
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="mb-0 capitalize dark:text-gray-800"
-          >
-            Photography
-          </a>
-        </div>
-        <a rel="noopener noreferrer" href="#">
-          See All
-        </a>
-      </div>
       <div className="space-y-4">
         <div className="space-y-2">
           <img
-            src="https://source.unsplash.com/random/480x360/?4"
+            src={photo}
             alt=""
             className="block object-cover object-center w-full rounded-md h-72 dark:bg-gray-500"
           />
-          <div className="flex items-center text-xs">
-            <span>6 min ago</span>
-          </div>
         </div>
         <div className="space-y-2">
           <a rel="noopener noreferrer" href="#" className="block">
-            <h3 className="text-xl font-semibold dark:text-violet-600">
-              Facere ipsa nulla corrupti praesentium pariatur architecto
+            <h3
+              className="text-xl font-semibold dark:text-[#001220] hover:underline tooltip tooltip-bottom"
+              data-tip={item_name}
+            >
+              {item_name.length > 30
+                ? item_name.slice(0, 20) + "..."
+                : item_name}
             </h3>
           </a>
-          <p className="leading-snug dark:text-gray-600">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat,
-            excepturi. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Repellat, excepturi.
+
+          <p className="dark:text-gray-600 text-lg">
+            <span className="font-bold text-[#001220]">Customization:</span>{" "}
+            {customization}
           </p>
+          <p className=" dark:text-gray-600 text-xl">
+            <span className="font-bold text-[#001220]">Stock:</span>{" "}
+            {stockStatus}
+          </p>
+
+          <div className="flex justify-between">
+            <p className="text-base font-bold dark:text-gray-600 hover:text-[#001220]">
+              <span className="text-[#001220]">Price:</span> ${price}
+            </p>
+            <p className="text-base font-bold dark:text-gray-600 hover:text-[#001220]">
+              <span className="text-[#001220]">Rating:</span> {rating}
+            </p>
+          </div>
+          <div className="flex justify-around">
+            <button
+             onClick={handleShow}
+              className="text-3xl text-[#001220] tooltip tooltip-top"
+              data-tip="Edit data"
+            >
+              <FaEdit />
+            </button>
+            <button
+              className="text-3xl text-[#002000] tooltip tooltip-top"
+              data-tip="Delete data"
+            >
+              <FaRegTrashCan />
+            </button>
+          </div>
+          <UpdateData id={_id} Dialog={Dialog}></UpdateData>
         </div>
       </div>
     </div>
