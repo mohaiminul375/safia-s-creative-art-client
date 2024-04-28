@@ -56,11 +56,12 @@ const UpdateData = ({ Dialog, singleData }) => {
                       <span>Please Select a sub category</span>
                     </label>
                     <select
+                    defaultValue={subcategory_Name}
                     {...register('subcategory_Name')}
-                    className="select select-bordered w-full" placeholder='please select'
+                    className="select select-bordered w-full"
                     required
                     >
-                      <option value=''>Please select a option</option>
+                      <option value=''>please select a option</option>
                       <option>Embroidery</option>
                       <option>Knitting & Crocheting</option>
                       <option>Quilting</option>
@@ -110,10 +111,12 @@ const UpdateData = ({ Dialog, singleData }) => {
                       <span>Customization</span>
                     </label>
                     <select
+                    defaultValue={customization}
                       {...register("customization")}
                       required
                       className="select select-bordered w-full"
                     >
+                      <option value=''>please select a option</option>
                       <option>yes</option>
                       <option>no</option>
                     </select>
@@ -141,10 +144,12 @@ const UpdateData = ({ Dialog, singleData }) => {
                       <span>Stock status</span>
                     </label>
                     <select
+                    defaultValue={stockStatus}
                       {...register("stockStatus")}
                       required
                       className="select select-bordered w-full"
                     >
+                       <option value=''>please select a option</option>
                       <option>In stock</option>
                       <option>Made to Order</option>
                     </select>
