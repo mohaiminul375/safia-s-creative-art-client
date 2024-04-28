@@ -9,11 +9,13 @@ import Register from "../components/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import CategoryData from "../components/pages/CategoryData/CategoryData";
 import ArtCraftDetails from "../components/pages/ArtCraftDetails/ArtCraftDetails";
+import ErrorPage from "../components/pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -39,7 +41,7 @@ export const router = createBrowserRouter([
       loader:({params})=>fetch(`http://localhost:5000/Art&Crafts/${params.id}`)
       },
       {
-        path:'/:category',
+        path:'/category/:category',
         element:<CategoryData></CategoryData>,
         loader:({params})=>fetch(`http://localhost:5000/AllArt&Crafts/${params.category}`)
       },

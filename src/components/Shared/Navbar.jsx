@@ -50,6 +50,17 @@ const Navbar = () => {
       >
         My Art & Craft
       </NavLink>
+      
+      <NavLink
+        className={({ isActive }) =>
+          isActive
+            ? "border-b-2 border-black font-bold text-xl"
+            : "p-2 rounded-md text-xl"
+        }
+        to="/newsLetter"
+      >
+        News Letter
+      </NavLink>
     </>
   );
   return (
