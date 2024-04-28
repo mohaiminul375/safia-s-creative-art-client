@@ -5,12 +5,12 @@ const CategoryCard = ({ category }) => {
   return (
     <div className="max-w-lg p-4 shadow-md dark:bg-gray-50 dark:text-gray-800">
       <Link to={`/category/${category_name}`}>
-        <div className="space-y-4">
+        <div className="space-y-4 rounded-md">
           <div className="space-y-2">
             <img
               src={photo}
               alt=""
-              className="block object-cover object-center w-full rounded-md h-72 dark:bg-gray-500"
+              className="block object-cover object-center w-full rounded-md h-72 dark:bg-gray-500 lg:transition lg:hover:scale-105"
             />
           </div>
           <div className="space-y-2">

@@ -18,7 +18,7 @@ const MyArtCraft = () => {
   }, []);
 
   useEffect(()=>{
-    fetch(`https://safias-creative-art-server-bmbwsw0zg-mohaiminul375s-projects.vercel.app/user/${email}/${customization}`)
+    fetch(`http://localhost:5000/user/${email}/${customization}`)
     .then(res=>res.json())
     .then(data=>{console.log(data)
       setMyData(data)
