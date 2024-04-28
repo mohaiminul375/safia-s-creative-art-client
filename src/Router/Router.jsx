@@ -36,7 +36,7 @@ export const router = createBrowserRouter([
       {
       path:'/Art&CraftDetails/:id',
       element:<PrivateRoute><ArtCraftDetails></ArtCraftDetails></PrivateRoute>,
-      loader:({params})=>fetch(`http://localhost:5000/Art&CraftDetails/${params.id}`)
+      loader:({params})=>fetch(`http://localhost:5000/Art&Crafts/${params.id}`)
       },
       {
         path:'/:category',

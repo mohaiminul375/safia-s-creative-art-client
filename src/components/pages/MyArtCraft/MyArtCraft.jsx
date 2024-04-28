@@ -28,7 +28,7 @@ const MyArtCraft = () => {
   
   console.log('custom',customization)
   return (
-    <div className="w-ful md:max-w-6xl mx-auto">
+    <div className="w-full md:max-w-6xl mx-auto">
       <div className="text-center my-12 ">
         <h2 className="text-center text-5xl font-bold font-rancho">My Art and Craft List</h2>
       </div>
@@ -41,7 +41,10 @@ const MyArtCraft = () => {
       </div>
       <div className="grid md:grid-cols-3 gap-5 mt-12">
        {
-        myData.map(singleData=><CustomizedDataCard key={singleData._id} singleData={singleData}></CustomizedDataCard>)
+        myData.map(singleData=><CustomizedDataCard
+          myData={myData}
+          setMyData={setMyData}
+          key={singleData._id} singleData={singleData}></CustomizedDataCard>)
        }
       </div>
     </div>

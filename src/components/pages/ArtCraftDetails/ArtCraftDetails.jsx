@@ -18,7 +18,7 @@ const ArtCraftDetails = () => {
     <div className="mt-12">
       <div className="w-full md:max-w-5xl border mx-auto p-5 rounded-lg bg-base-200">
         <div className="flex flex-col md:flex-row">
-          <img className="rounded-md" src={photo} alt="" />
+          <img className="rounded-md" src={photo} alt={`Image of ${item_name}`} />
           <div className="mt-5 md:ml-10">
             <h2 className="text-xl">
               <span className="font-bold">Item Name:</span>{" "}
