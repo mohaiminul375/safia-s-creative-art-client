@@ -1,0 +1,10 @@
+.swal2-container {
+    z-index: 1000 !important;
+    color: green;
+}
+.i{
+    background: red;
+}
+.txt{
+    color: red;
+}
