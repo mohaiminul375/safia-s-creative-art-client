@@ -5,20 +5,20 @@ import { AuthContext } from "../../firebase/FirebaseProvider";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   console.log("user from navbar", user);
-  const [theme, setTheme] = useState("light");
-  useEffect(()=>{
-   localStorage.setItem('theme',theme)
-   const localTheme=localStorage.getItem('theme')
-   document.getElementById('home').setAttribute('data-theme',localTheme)
-  },[theme])
-  const handleToggle = (e) => {
-    if (e.target.checked) {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  };
-  console.log(theme)
+  // const [theme, setTheme] = useState("light");
+  // useEffect(()=>{
+  //  localStorage.setItem('theme',theme)
+  //  const localTheme=localStorage.getItem('theme')
+  //  document.getElementById('home').setAttribute('data-theme',localTheme)
+  // },[theme])
+  // const handleToggle = (e) => {
+  //   if (e.target.checked) {
+  //     setTheme("dark");
+  //   } else {
+  //     setTheme("light");
+  //   }
+  // };
+  // console.log(theme)
   const links = (
     <>
       <NavLink
@@ -123,7 +123,7 @@ const Navbar = () => {
           <label className="swap swap-rotate">
             {/* this hidden checkbox controls the state */}
             <input
-            onChange={handleToggle}
+            // onChange={handleToggle}
               type="checkbox"
               className="theme-controller"
               value="synthwave"

@@ -5,7 +5,10 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 const AddArtCraft = () => {
   const { user } = useContext(AuthContext);
-
+  const [value, setValue] = useState(user?.email);
+  const handleEmail=(e)=>{
+    setValue(e.target.value)
+  }
   // react hook form
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
@@ -69,10 +72,11 @@ const AddArtCraft = () => {
                   type="text"
                   name="email"
                   id="email"
+                  onChange={handleEmail}
                   placeholder="input user email"
-                  defaultValue={user?.email}
+                  value={value}
                   {...register("userEmail")}
-                  readOnly
+                readOnly={value == ''}
                 />
               </div>
             </div>
