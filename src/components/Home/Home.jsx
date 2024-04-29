@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import Banner2 from "./Banner2";
 import BrowseCollection from "./BrowseCollection";
 import FeaturedProducts from "./FeaturedProducts";
 // import OurClient from "./OurClient";
@@ -9,6 +10,7 @@ const Home = () => {
   return (
     <div id="home">
       <Banner></Banner>
+      <Banner2></Banner2>
       <SomeFeatures></SomeFeatures>
       <div className="w-full md:max-w-6xl mx-auto">
         <FeaturedProducts></FeaturedProducts>

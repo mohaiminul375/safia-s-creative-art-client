@@ -16,7 +16,7 @@ const FeaturedProducts = () => {
   return (
     <div className="mt-28">
       <div className="flex justify-between px-8">
-        <h3 className="text-2xl font-bold">Our Featured Collections</h3>
+        <h3 className="text-4xl font-bold">Our Featured Collections</h3>
         <p className="text-lg border-b-2 border-black hover:font-bold hidden md:flex">
           <Link to='/allArt&Craft'>view all</Link>
         </p>
