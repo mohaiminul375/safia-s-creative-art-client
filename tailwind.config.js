@@ -5,6 +5,7 @@ export default {
     extend: {},
     fontFamily: {
       rancho: '"Rancho", cursive',
+      khand: '"Khand", sans-serif"',
     },
   },
   plugins: [require("daisyui")],
