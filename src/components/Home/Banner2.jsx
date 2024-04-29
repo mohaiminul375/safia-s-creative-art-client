@@ -3,12 +3,12 @@ import { Typewriter } from "react-simple-typewriter";
 const Banner2 = () => {
   return (
     <div>
-      <div className="bg-[#001220] h-[100px] text-white flex justify-center items-center">
-        <h3 className="text-2xl font-khand">
+      <div className="bg-[#001220] h-[80px] text-white flex justify-center items-center">
+        <h3 className="text-2xl font-khand">|
           <Typewriter
             cursor
             cursorBlinking
-            delaySpeed={1000}
+            delaySpeed={2000}
             deleteSpeed={25}
             loop={0}
             typeSpeed={75}
@@ -16,7 +16,7 @@ const Banner2 = () => {
               "Welcome to Safia's Creative Art Studio",
               'Visit our website and explore our beautiful collection',
               "And",
-              "Join with us and showcase your creativity"
+              "You can join with us and showcase your creativity"
             ]}
           />
         </h3>
