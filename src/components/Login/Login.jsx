@@ -160,23 +160,23 @@ const Login = () => {
             />
             <span
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute top-[64%] right-6 text-xl"
+              className="absolute top-[64%] right-6 text-xl tooltip tooltip-top" data-tip={showPassword?'hide': 'show'}
             >
               {showPassword ? (
                 <>
                   <FaRegEye
-                    data-tooltip-id="hide"
-                    data-tooltip-content="hide-Password"
+                   
+              
                   />
-                  <Tooltip className="" id="hide" />
+                  
                 </>
               ) : (
                 <>
                   <FaRegEyeSlash
-                    data-tooltip-id="show"
-                    data-tooltip-content="show-Password"
+                    className="tooltip tooltip-top"
+                    data-tip='show'
                   />
-                  <Tooltip className="text-xl" id="show" />
+          
                 </>
               )}
             </span>

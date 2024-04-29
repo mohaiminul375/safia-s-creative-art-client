@@ -14,11 +14,11 @@ const CategoryCard = ({ category }) => {
             />
           </div>
           <div className="space-y-2">
-            <a rel="noopener noreferrer" href="#" className="block">
+            
               <h3 className="text-3xl mt-10 text-center font-semibold dark:text-[#001220]">
                 {category_name}
               </h3>
-            </a>
+            
             <div></div>
           </div>
         </div>

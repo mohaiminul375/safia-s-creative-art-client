@@ -194,7 +194,7 @@ const Register = () => {
             />
             <span
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute top-[64%] right-6 text-xl"
+              className="absolute top-[64%] right-6 text-xl tooltip tooltip-top" data-tip={showPassword?'hide': 'show'}
             >
               {showPassword ? (
                 <>

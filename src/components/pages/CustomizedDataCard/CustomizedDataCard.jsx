@@ -51,7 +51,7 @@ const CustomizedDataCard = ({ singleData, myData, setMyData }) => {
           />
         </div>
         <div className="space-y-2">
-          <a rel="noopener noreferrer" href="#" className="block">
+          
             <h3
               className="text-xl font-semibold dark:text-[#001220] hover:underline tooltip tooltip-bottom"
               data-tip={item_name}
@@ -60,7 +60,7 @@ const CustomizedDataCard = ({ singleData, myData, setMyData }) => {
                 ? item_name.slice(0, 20) + "..."
                 : item_name}
             </h3>
-          </a>
+          
 
           <p className="dark:text-gray-600 text-lg">
             <span className="font-bold text-[#001220]">Customization:</span>{" "}
