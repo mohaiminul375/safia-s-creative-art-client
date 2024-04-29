@@ -1,7 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import banner from "../../assets/Banner.jpg";
 import outlet from "../../assets/Outlet.jpg";
 import banner2 from "../../assets/Banner2.jpg";
@@ -11,23 +12,20 @@ import art3 from "../../assets/art-3.jpg";
 import art4 from "../../assets/art-4.jpg";
 
 // swiper control system
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
 
 const Banner = () => {
   return (
     <div className="">
       <Swiper
+      loop={true}
         spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
+        effect={'fade'}
+        navigation={true}
         pagination={{
           clickable: true,
         }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[EffectFade, Navigation, Pagination]}
         className="mySwiper"
       >
         <SwiperSlide>
