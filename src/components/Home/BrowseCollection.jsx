@@ -6,7 +6,7 @@ const BrowseCollection = () => {
   useEffect(()=>{
     fetch('https://safias-creative-art-server.vercel.app/categories')
     .then(res=>res.json())
-    .then(data=>{console.log(data)
+    .then(data=>{
     setCategories(data)
     });
   },[])

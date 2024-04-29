@@ -9,7 +9,6 @@ const FeaturedProducts = () => {
       .then((res) => res.json())
       .then((data) => {
         const dataSlice = data.slice(0, 6)
-        console.log(dataSlice);
         setCrafts(dataSlice);
       });
   }, []);
