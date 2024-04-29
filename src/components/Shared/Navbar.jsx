@@ -7,7 +7,7 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   console.log("user from navbar", user);
 
-  useEffect(() => {}, []);
+
   const [theme, setTheme] = useState(localStorage.getItem("theme"));
   useEffect(() => {
     // console.log("i am use effect");
@@ -22,33 +22,7 @@ const Navbar = () => {
       document.querySelector("html").setAttribute("data-theme", localTheme);
     }
 
-    // console.log('theme from use effect',getTheme)
-    // if (getTheme) {
-    //   // setTheme(getTheme)
-
-    //   console.log("true means i found",theme);
-    //   localStorage.setItem('theme',theme)
-    //   // const getTheme = localStorage.getItem("theme");
-    //   document.querySelector('html').setAttribute('data-theme',getTheme)
-
-    // } else {
-    //   setTheme('light')
-    //   localStorage.setItem("theme", "light");
-    //   const getTheme = localStorage.getItem("theme");
-    //   document.querySelector("html").setAttribute("data-theme", getTheme);
-    // }
-
-    // const setTheme = localStorage.setItem("theme", theme);
-    // if (getTheme) {
-    //   console.log("true");
-    //   localStorage.setItem("theme", "light");
-    //   const getTheme = localStorage.getItem("theme");
-    //   document.querySelector("html").setAttribute("data-theme", getTheme);
-    // } else {
-
-    // }
-    //  const localTheme=localStorage.getItem('theme')
-    //  document.querySelector('html').setAttribute('data-theme',localTheme)
+  
   }, [theme]);
   console.log(theme);
   const handleToggle = (e) => {
@@ -168,7 +142,6 @@ const Navbar = () => {
               onChange={handleToggle}
               type="checkbox"
               className="theme-controller"
-              // defaultValue={true}
               checked={theme=='dark'}
             />
 
@@ -184,7 +157,7 @@ const Navbar = () => {
             </svg>
 {/* sun icon by default on*/}
             <svg
-              className={`${theme == 'light' ||"swap-off"} fill-current w-10 h-10`}
+              className={`swap-off fill-current w-10 h-10`}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
