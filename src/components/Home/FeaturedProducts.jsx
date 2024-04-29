@@ -5,7 +5,7 @@ import SingleItem from "../pages/SingleItem/SingleItem";
 const FeaturedProducts = () => {
   const [crafts, setCrafts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/allArt&Crafts")
+    fetch("https://safias-creative-art-server.vercel.app/allArt&Crafts")
       .then((res) => res.json())
       .then((data) => {
         const dataSlice = data.slice(0, 6)

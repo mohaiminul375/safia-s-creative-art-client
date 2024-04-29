@@ -12,7 +12,7 @@ const SingleItem = ({craft }) => {
     stockStatus,
   } = craft;
   return (
-    <div className="w-full md:max-w-lg  rounded-md p-4 shadow-md dark:bg-gray-50 dark:text-gray-800 lg:transition lg:hover:scale-110">
+    <div className="w-full md:max-w-lg  rounded-md p-4 shadow-md dark:bg-gray-50 dark:text-gray-800 lg:transition lg:hover:scale-105">
       <div className="space-y-4">
         <div className="space-y-2 ">
           <img

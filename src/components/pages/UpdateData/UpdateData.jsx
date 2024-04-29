@@ -20,7 +20,7 @@ const UpdateData = ({ singleData }) => {
   const onSubmit = (updateData) => {
     console.log("form data", updateData);
 
-    fetch(`https://safias-creative-art-server-bmbwsw0zg-mohaiminul375s-projects.vercel.app/Art&Crafts/${_id}`, {
+    fetch(`https://safias-creative-art-server.vercel.app/Art&Crafts/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -86,7 +86,7 @@ const UpdateData = ({ singleData }) => {
                     className="select select-bordered w-full"
                     required
                   >
-                    <option value="">please select a option</option>
+                    <option value="">Please select an option</option>
                     <option>Embroidery</option>
                     <option>Knitting & Crocheting</option>
                     <option>Quilting</option>
@@ -141,7 +141,7 @@ const UpdateData = ({ singleData }) => {
                     required
                     className="select select-bordered w-full"
                   >
-                    <option value="">please select a option</option>
+                    <option value="">Please select an option</option>
                     <option>yes</option>
                     <option>no</option>
                   </select>

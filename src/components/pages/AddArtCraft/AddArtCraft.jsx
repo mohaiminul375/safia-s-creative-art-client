@@ -10,7 +10,7 @@ const AddArtCraft = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    fetch("https://safias-creative-art-server-bmbwsw0zg-mohaiminul375s-projects.vercel.app/allArt&Crafts", {
+    fetch("https://safias-creative-art-server.vercel.app/allArt&Crafts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -101,6 +101,7 @@ const AddArtCraft = () => {
                   {...register("subcategory_Name")}
                   className="select select-bordered w-full"
                 >
+                  <option value=''>Please select an option</option>
                   <option>Embroidery</option>
                   <option>Knitting & Crocheting</option>
                   <option>Quilting</option>
@@ -152,6 +153,7 @@ const AddArtCraft = () => {
                   {...register("customization")}
                   className="select select-bordered w-full"
                 >
+                  <option value=''>Please select an option</option>
                   <option>yes</option>
                   <option>no</option>
                 </select>
@@ -182,6 +184,7 @@ const AddArtCraft = () => {
                   {...register("stockStatus")}
                   className="select select-bordered w-full"
                 >
+                  <option value=''>Please select an option</option>
                   <option>In stock</option>
                   <option>Made to Order</option>
                 </select>

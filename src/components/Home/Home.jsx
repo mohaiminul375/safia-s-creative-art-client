@@ -7,15 +7,15 @@ import SomeFeatures from "./SomeFeatures";
 
 const Home = () => {
   return (
-    <div>
+    <div id="home">
       <Banner></Banner>
-        <SomeFeatures></SomeFeatures>
-    <div className="w-full md:max-w-6xl mx-auto">
+      <SomeFeatures></SomeFeatures>
+      <div className="w-full md:max-w-6xl mx-auto">
         <FeaturedProducts></FeaturedProducts>
         <BrowseCollection></BrowseCollection>
         {/* <OurClient></OurClient> */}
         <OurTeam></OurTeam>
-    </div>
+      </div>
     </div>
   );
 };

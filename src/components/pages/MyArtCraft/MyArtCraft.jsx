@@ -9,7 +9,7 @@ const MyArtCraft = () => {
   // console.log('user in cc',user?.email)
   const email=user?.email
   useEffect(() => {
-    fetch(`https://safias-creative-art-server-bmbwsw0zg-mohaiminul375s-projects.vercel.app/user/${email}`)
+    fetch(`https://safias-creative-art-server.vercel.app/user/${email}`)
     .then(res=>res.json())
     .then(data=>{
       console.log(data)
@@ -18,7 +18,7 @@ const MyArtCraft = () => {
   }, []);
 
   useEffect(()=>{
-    fetch(`http://localhost:5000/user/${email}/${customization}`)
+    fetch(`https://safias-creative-art-server.vercel.app/user/${email}/${customization}`)
     .then(res=>res.json())
     .then(data=>{console.log(data)
       setMyData(data)
@@ -34,7 +34,7 @@ const MyArtCraft = () => {
       </div>
       <div className="flex justify-center mt-5">
         <select onChange={e=>setCustomization(e.target.value)} className="select select-bordered w-full max-w-xs">
-          <option selected disabled>Selected a option</option>
+          <option selected disabled>Select an option</option>
           <option value='yes'>Yes</option>
           <option value='no'>No</option>
         </select>

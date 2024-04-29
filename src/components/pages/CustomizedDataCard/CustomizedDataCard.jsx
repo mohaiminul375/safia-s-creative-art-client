@@ -18,7 +18,7 @@ const CustomizedDataCard = ({ singleData, myData, setMyData }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://safias-creative-art-server-bmbwsw0zg-mohaiminul375s-projects.vercel.app/Art&Crafts/${id}`, {
+        fetch(`https://safias-creative-art-server.vercel.app/Art&Crafts/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

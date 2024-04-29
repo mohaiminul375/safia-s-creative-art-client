@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
       {
         path: "/allArt&Craft",
         element: <AllArtCraft></AllArtCraft>,
-        loader:()=>fetch('http://localhost:5000/allArt&Crafts')
+        loader:()=>fetch('https://safias-creative-art-server.vercel.app/allArt&Crafts')
       },
       {
         path: "/addArt&Craft",
@@ -38,12 +38,12 @@ export const router = createBrowserRouter([
       {
       path:'/Art&CraftDetails/:id',
       element:<PrivateRoute><ArtCraftDetails></ArtCraftDetails></PrivateRoute>,
-      loader:({params})=>fetch(`https://safias-creative-art-server-bmbwsw0zg-mohaiminul375s-projects.vercel.app/Art&Crafts/${params.id}`)
+      loader:({params})=>fetch(`https://safias-creative-art-server.vercel.app/Art&Crafts/${params.id}`)
       },
       {
         path:'/category/:categoryName',
         element:<CategoryData></CategoryData>,
-        loader:({params})=>fetch(`https://safias-creative-art-server-bmbwsw0zg-mohaiminul375s-projects.vercel.app/AllArt&Crafts/${params.categoryName}`)
+        loader:({params})=>fetch(`https://safias-creative-art-server.vercel.app/AllArt&Crafts/${params.categoryName}`)
       },
       {
         path:'/login',
