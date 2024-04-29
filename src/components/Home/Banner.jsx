@@ -5,6 +5,10 @@ import "swiper/css/navigation";
 import banner from "../../assets/Banner.jpg";
 import outlet from "../../assets/Outlet.jpg";
 import banner2 from "../../assets/Banner2.jpg";
+import art1 from "../../assets/art-1.jpeg";
+import art2 from "../../assets/art-2.jpeg";
+import art3 from "../../assets/art-3.jpg";
+import art4 from "../../assets/art-4.jpg";
 
 // swiper control system
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -28,67 +32,45 @@ const Banner = () => {
       >
         <SwiperSlide>
           <div
+            style={{ backgroundImage: `url(${art4})` }}
+            className="h-[400px]  hero"
+          >
+            {" "}
+            <div className=" "></div>
+            <div className="hero-content text-center text-neutral-content"></div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div
             style={{ backgroundImage: `url(${banner})` }}
-            className="h-[500px]  hero"
+            className="h-[400px]  hero"
           >
             {" "}
-            <div className="hero-overlay bg-opacity-30"></div>
+            <div className=" "></div>
+            <div className="hero-content text-center text-neutral-content"></div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div
+            style={{ backgroundImage: `url(${art1})` }}
+            className="h-[400px]  hero"
+          >
+            {" "}
+            <div className=" "></div>
             <div className="hero-content text-center text-neutral-content">
-              <div className="max-w-3xl">
-                <h1 className="mb-5 text-5xl font-bold text-black">Welcome <br />
-                To
-                <br />
-                <span className="font-rancho">Safia's</span> <span className="text-base">creative art studio</span>
-                </h1>
-                <p className="mb-5">
-                Safia's creative art studio is a textile base art and craft platform. 
-                </p>
-                <button className="btn btn-primary">Get Started</button>
-              </div>
+              <div className="max-w-3xl"></div>
             </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
-        <div
-            style={{ backgroundImage: `url(${outlet})` }}
-            className="h-[500px]  hero"
+          <div
+            style={{ backgroundImage: `url(${art3})` }}
+            className="h-[400px]  hero"
           >
             {" "}
-            <div className="hero-overlay bg-opacity-30"></div>
+            <div className=" "></div>
             <div className="hero-content text-center text-neutral-content">
-              <div className="max-w-3xl">
-                {/* <h1 className="mb-5 text-5xl font-bold text-black">Welcome <br />
-                To
-                <br />
-                <span className="font-rancho">Safia's</span> <span className="text-base">creative art studio</span>
-                </h1> */}
-                {/* <p className="mb-5">
-                Safia's creative art studio is a textile base art and craft platform. 
-                </p> */}
-                <button className="btn btn-primary">Get Started</button>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div
-            style={{ backgroundImage: `url(${banner2})` }}
-            className="h-[500px]  hero"
-          >
-            {" "}
-            <div className="hero-overlay bg-opacity-30"></div>
-            <div className="hero-content text-center text-neutral-content">
-              <div className="max-w-3xl">
-                {/* <h1 className="mb-5 text-5xl font-bold text-black">Welcome <br />
-                To
-                <br />
-                <span className="font-rancho">Safia's</span> <span className="text-base">creative art studio</span>
-                </h1> */}
-                {/* <p className="mb-5">
-                Safia's creative art studio is a textile base art and craft platform. 
-                </p> */}
-                <button className="btn btn-primary">Get Started</button>
-              </div>
+              <div className="max-w-3xl"></div>
             </div>
           </div>
         </SwiperSlide>
