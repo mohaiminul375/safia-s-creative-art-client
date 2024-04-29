@@ -2,6 +2,7 @@ import { FaEdit } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
 import UpdateData from "../UpdateData/UpdateData";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const CustomizedDataCard = ({ singleData, myData, setMyData }) => {
   const { _id, item_name, customization, photo, price, rating, stockStatus } =
@@ -18,9 +19,12 @@ const CustomizedDataCard = ({ singleData, myData, setMyData }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://safias-creative-art-server.vercel.app/Art&Crafts/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://safias-creative-art-server.vercel.app/Art&Crafts/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -77,11 +81,12 @@ const CustomizedDataCard = ({ singleData, myData, setMyData }) => {
           </div>
           <div className="flex justify-around">
             <button
-              onClick={() => document.getElementById("my_modal_2").showModal()}
               className="text-3xl text-[#001220] tooltip tooltip-top"
               data-tip="Edit data"
             >
-              <FaEdit />
+              <Link to={`/myArt&Craft/update/${_id}`}>
+                <FaEdit />
+              </Link>
             </button>
             <button
               onClick={() => handleDelete(_id)}
@@ -91,14 +96,6 @@ const CustomizedDataCard = ({ singleData, myData, setMyData }) => {
               <FaRegTrashCan />
             </button>
           </div>
-          <dialog id="my_modal_2" className="modal">
-            <div className="modal-box w-full md:max-w-6xl">
-              <UpdateData singleData={singleData}></UpdateData>
-            </div>
-            <form method="dialog" className="modal-backdrop">
-              <button>close</button>
-            </form>
-          </dialog>
         </div>
       </div>
     </div>

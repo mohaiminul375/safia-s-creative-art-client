@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import CategoryData from "../components/pages/CategoryData/CategoryData";
 import ArtCraftDetails from "../components/pages/ArtCraftDetails/ArtCraftDetails";
 import ErrorPage from "../components/pages/ErrorPage/ErrorPage";
+import UpdateData from "../components/pages/UpdateData/UpdateData";
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +45,11 @@ export const router = createBrowserRouter([
         path:'/category/:categoryName',
         element:<CategoryData></CategoryData>,
         loader:({params})=>fetch(`https://safias-creative-art-server.vercel.app/AllArt&Crafts/${params.categoryName}`)
+      },
+      {
+        path:'/myArt&Craft/update/:id',
+        element: <UpdateData></UpdateData> ,
+        loader:({params})=>fetch(`https://safias-creative-art-server.vercel.app/Art&Crafts/${params.id}`)
       },
       {
         path:'/login',
