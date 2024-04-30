@@ -1,3 +1,4 @@
+import { Fade } from "react-awesome-reveal";
 import team1 from "../../assets/team-1.jpg"
 import team2 from "../../assets/team-2.jpg"
 import team3 from "../../assets/team-3.jpg"
@@ -9,10 +10,12 @@ const OurTeam = () => {
   return (
     <div className="mt-28">
       <h2 className="text-4xl font-bold text-base-content ">Meet Our Team</h2>
+      
       <div className="mt-10">
         <section className="py-6 text-base-content">
           <div className="container p-4 mx-auto space-y-16 sm:p-10">
             <div className="grid w-full grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+            <Fade direction="left" triggerOnce={true}>
               <div className="space-y-4">
                 <img
                   alt=""
@@ -36,7 +39,8 @@ const OurTeam = () => {
                  
                 </div>
               </div>
-             
+             </Fade>
+             <Fade direction="right" triggerOnce={true}>
               <div className="space-y-4">
                 <img
                   alt=""
@@ -63,10 +67,12 @@ const OurTeam = () => {
                 
                 </div>
               </div>
+              </Fade>
             </div>
           </div>
         </section>
       </div>
+    
     </div>
   );
 };

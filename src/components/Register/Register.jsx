@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../firebase/FirebaseProvider";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet-async";
 const Register = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -123,6 +124,9 @@ const Register = () => {
 
   return (
     <div className="w-full md:max-w-2xl mx-auto">
+      <Helmet>
+        <title>scas | Register</title>
+      </Helmet>
       <div className="text-center mt-12">
         <h2 className="text-5xl font-bold">Register Here</h2>
       </div>

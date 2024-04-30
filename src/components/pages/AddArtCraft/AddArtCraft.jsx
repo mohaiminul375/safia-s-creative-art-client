@@ -3,6 +3,7 @@ import "react-dropdown/style.css";
 import { AuthContext } from "../../../firebase/FirebaseProvider";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 const AddArtCraft = () => {
   const { user } = useContext(AuthContext);
   const [value, setValue] = useState(user?.email);
@@ -36,6 +37,9 @@ const AddArtCraft = () => {
 
   return (
     <div>
+        <Helmet>
+        <title>scas | Add Art&Craft</title>
+      </Helmet>
       <div className="mt-12 w-full md:max-w-6xl mx-auto border bg-base-200 p-3 rounded-lg">
         <div className="text-center">
           <h2 className="font-rancho font-bold text-5xl">Add Art&Craft</h2>

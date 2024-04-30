@@ -7,6 +7,7 @@ import { AuthContext } from "../../firebase/FirebaseProvider";
 import { FaCircleXmark } from "react-icons/fa6";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet-async";
 const Login = () => {
   const {loginWithGoogle,loginWithGithub,loginUser}=useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
@@ -120,6 +121,9 @@ const Login = () => {
 
   return (
     <div className="w-full md:max-w-2xl mx-auto">
+      <Helmet>
+        <title>scas | login</title>
+      </Helmet>
       <div className="text-center mt-12">
         <h2 className="text-5xl font-bold">Login Here</h2>
       </div>

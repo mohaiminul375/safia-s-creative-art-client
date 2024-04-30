@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Fade } from "react-awesome-reveal";
 const CategoryCard = ({ category }) => {
   const { category_name,photo } = category;
   return (
+    <Fade direction="up"triggerOnce={true}>
     <div className="max-w-lg p-4 shadow-md dark:bg-gray-50 dark:text-gray-800 rounded-lg">
       <Link to={`/category/${category_name}`}>
         <div className="space-y-4 rounded-md">
@@ -24,6 +26,7 @@ const CategoryCard = ({ category }) => {
         </div>
       </Link>
     </div>
+    </Fade>
   );
 };
 CategoryCard.propType = {

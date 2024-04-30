@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../firebase/FirebaseProvider";
 import CustomizedDataCard from "../CustomizedDataCard/CustomizedDataCard";
+import { Helmet } from "react-helmet-async";
 
 const MyArtCraft = () => {
   const [myData,setMyData]=useState([])
@@ -29,6 +30,9 @@ const MyArtCraft = () => {
   console.log('custom',customization)
   return (
     <div className="w-full md:max-w-6xl mx-auto">
+      <Helmet>
+        <title>scas | My Art&Craft</title>
+      </Helmet>
       <div className="text-center my-12 ">
         <h2 className="text-center text-5xl font-bold font-rancho">My Art and Craft List</h2>
       </div>

@@ -1,11 +1,15 @@
 import { useLoaderData } from "react-router-dom";
 import DataTable from "../DataTable/DataTable";
+import { Helmet } from "react-helmet-async";
 
 const AllArtCraft = () => {
   const allArtCraft = useLoaderData();
   //   console.log(allArtCraft);
   return (
     <div className="md:max-w-6xl mx-auto">
+        <Helmet>
+        <title>scas | All Art & Craft</title>
+      </Helmet>
       <div className="my-12">
         <h2 className="text-center text-5xl font-bold font-rancho text-base-content">
           Explore Our All Art and Craft

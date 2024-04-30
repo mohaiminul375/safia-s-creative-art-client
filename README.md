@@ -1,5 +1,5 @@
 # Safia-s Creative Studio
-# Live URL: 
+# Live URL: https://safias-art-and-craft.web.app/
 
 
 
@@ -17,4 +17,5 @@
 - sweet alert2
 - react toastify
 - react typewriter
+- react awesome revel
 - react hook form

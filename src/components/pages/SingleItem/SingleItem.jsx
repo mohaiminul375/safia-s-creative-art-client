@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Fade } from "react-awesome-reveal";
 const SingleItem = ({craft }) => {
   // console.log(craft);
   const {
@@ -12,6 +13,7 @@ const SingleItem = ({craft }) => {
     stockStatus,
   } = craft;
   return (
+    <Fade direction="up" triggerOnce={true}>
     <div className="w-full md:max-w-lg  rounded-md p-4 shadow-md dark:bg-gray-50 dark:text-gray-800 lg:transition lg:hover:scale-105">
       <div className="space-y-4">
         <div className="space-y-2 ">
@@ -52,6 +54,7 @@ const SingleItem = ({craft }) => {
         </div>
       </div>
     </div>
+    </Fade>
   );
 };
 SingleItem.propType = {
