@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 
 const CategoryDataCard = ({data}) => {
@@ -62,5 +63,8 @@ const CategoryDataCard = ({data}) => {
       </div>
     );
 };
+CategoryDataCard.propTypes = {
+  data: PropTypes.object,
 
+};
 export default CategoryDataCard;

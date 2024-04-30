@@ -57,7 +57,7 @@ const SingleItem = ({craft }) => {
     </Fade>
   );
 };
-SingleItem.propType = {
+SingleItem.propTypes = {
     craft: PropTypes.object,
   };
 export default SingleItem;

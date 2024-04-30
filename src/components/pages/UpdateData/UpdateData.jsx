@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import "./UpdateData.css";
-import { Bounce, ToastContainer, toast } from "react-toastify";
+// import { Bounce, ToastContainer, toast } from "react-toastify";
 import { useLoaderData } from "react-router-dom";
 const UpdateData = () => {
   const singleData = useLoaderData();
@@ -208,7 +208,7 @@ const UpdateData = () => {
           </div>
         </form>
       </div>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </div>
   );
 };

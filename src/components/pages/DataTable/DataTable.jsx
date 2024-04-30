@@ -1,5 +1,6 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const DataTable = ({ craft, idx }) => {
   const { _id, item_name, subcategory_Name, stockStatus } = craft;
@@ -19,5 +20,9 @@ const DataTable = ({ craft, idx }) => {
     </tr>
   );
 };
+DataTable.propTypes={
+  craft:PropTypes.obj,
+  idx:PropTypes.number
+}
 
 export default DataTable;

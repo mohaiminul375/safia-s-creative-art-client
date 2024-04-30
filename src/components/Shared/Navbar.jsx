@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../firebase/FirebaseProvider";
@@ -8,8 +8,7 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   console.log("user from navbar", user);
 
-
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || 'light');
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   useEffect(() => {
     // console.log("i am use effect");
     // const getTheme = localStorage.getItem("theme");
@@ -22,8 +21,6 @@ const Navbar = () => {
       // add custom data-theme attribute
       document.querySelector("html").setAttribute("data-theme", localTheme);
     }
-
-  
   }, [theme]);
   console.log(theme);
   const handleToggle = (e) => {
@@ -121,13 +118,17 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <div className="flex items-center gap-2">
-          <img className="w-16" src={logo} alt="" />
-          <div>
-            <h2 className="font-rancho text-3xl font-bold">Safia's </h2>
-            <small className="italic">creative art studio</small>
+        <Link to="/">
+          <div className="flex items-center flex-col md:flex-row justify-center gap-2">
+            <img className="w-10 md:w-16" src={logo} alt="" />
+            <div>
+              <h2 className="font-rancho text-xl md:text-3xl font-bold">
+                Safia's{" "}
+              </h2>
+              <small className="italic">creative art studio</small>
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex pb-0">
         <ul className="menu menu-horizontal items-center px-1 pb-0 gap-4">
@@ -143,10 +144,8 @@ const Navbar = () => {
               onChange={handleToggle}
               type="checkbox"
               className="theme-controller"
-              checked={theme=='dark'}
+              checked={theme == "dark"}
             />
-
-            
 
             {/* moon icon */}
             <svg
@@ -156,7 +155,7 @@ const Navbar = () => {
             >
               <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
             </svg>
-{/* sun icon by default on*/}
+            {/* sun icon by default on*/}
             <svg
               className={`swap-off fill-current w-10 h-10`}
               xmlns="http://www.w3.org/2000/svg"
@@ -188,9 +187,11 @@ const Navbar = () => {
               >
                 <p className="text-center text-xl font-bold">Profile of:</p>
                 <p className="text-center">{user?.displayName}</p>
-                <button onClick={logOut} className="btn mt-2 border-2 border-base-content text-xl">
+                <button
+                  onClick={logOut}
+                  className="btn mt-2 border-2 border-base-content text-xl"
+                >
                   Logout <IoIosLogOut />
-
                 </button>
               </div>
             </div>
@@ -198,26 +199,28 @@ const Navbar = () => {
         ) : (
           <>
             {" "}
-            <NavLink
-              to="/register"
-              className={({ isActive }) =>
-                isActive
-                  ? "border-b-2 border-black font-bold text-base mr-2"
-                  : "p-2 rounded-md text-lg mr-2"
-              }
-            >
-              Register
-            </NavLink>
-            <NavLink
-              className={({ isActive }) =>
-                isActive
-                  ? "border-b-2 underline border-black font-bold btn bg-white rounded-full text-base"
-                  : "btn bg-white rounded-full text-base"
-              }
-              to="/login"
-            >
-              Login
-            </NavLink>
+            <div className="flex flex-col gap-2 md:flex md:flex-row">
+              <NavLink
+                to="/register"
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 border-black font-bold text-base mr-2"
+                    : "p-2 rounded-md text-lg mr-2"
+                }
+              >
+                Register
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 underline border-black font-bold btn bg-white rounded-full text-base"
+                    : "btn bg-white rounded-full text-base"
+                }
+                to="/login"
+              >
+                Login
+              </NavLink>
+            </div>
           </>
         )}
       </div>

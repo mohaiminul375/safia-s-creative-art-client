@@ -1,8 +1,9 @@
 import { FaEdit } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
-import UpdateData from "../UpdateData/UpdateData";
+// import UpdateData from "../UpdateData/UpdateData";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const CustomizedDataCard = ({ singleData, myData, setMyData }) => {
   const { _id, item_name, customization, photo, price, rating, stockStatus } =
@@ -101,5 +102,9 @@ const CustomizedDataCard = ({ singleData, myData, setMyData }) => {
     </div>
   );
 };
-
+CustomizedDataCard.propTypes={
+  singleData: PropTypes.object,
+  myData:PropTypes.array,
+  setMyData:PropTypes.func
+}
 export default CustomizedDataCard;

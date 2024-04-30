@@ -29,7 +29,7 @@ const CategoryCard = ({ category }) => {
     </Fade>
   );
 };
-CategoryCard.propType = {
+CategoryCard.propTypes = {
   category: PropTypes.object,
 };
 export default CategoryCard;
