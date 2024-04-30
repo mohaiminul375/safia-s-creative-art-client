@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../firebase/FirebaseProvider";
+import { IoIosLogOut } from "react-icons/io";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -94,7 +95,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-200 md:px-8 pt-5">
+    <div className="navbar bg-base-200 md:px-8 pt-5 text-base-content">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost  lg:hidden">
@@ -115,7 +116,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-200 rounded-box w-52"
           >
             {links}
           </ul>
@@ -183,12 +184,13 @@ const Navbar = () => {
               </div>
               <div
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-52"
               >
                 <p className="text-center text-xl font-bold">Profile of:</p>
                 <p className="text-center">{user?.displayName}</p>
-                <button onClick={logOut} className="btn mt-2">
-                  Logout
+                <button onClick={logOut} className="btn mt-2 border-2 border-base-content text-xl">
+                  Logout <IoIosLogOut />
+
                 </button>
               </div>
             </div>

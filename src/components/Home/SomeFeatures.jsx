@@ -3,7 +3,7 @@
 const SomeFeatures = () => {
   return (
     <div className="mt-28 md:max-w-6xl mx-auto">
-      <h2 className="text-center text-4xl font-bold">Our Sponsor</h2>
+      <h2 className="text-center text-4xl font-bold text-base-content">Our Sponsor</h2>
       <marquee className="mt-10 bg-base-200">
         <div className="container flex">
           <div className="flex justify-center w-1/2 p-6 align-middle md:w-1/3 xl:w-1/4">

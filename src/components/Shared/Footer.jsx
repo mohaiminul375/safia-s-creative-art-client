@@ -17,31 +17,31 @@ const Footer = () => {
           </div>
         </aside>
         <nav className="text-center">
-          <h6 className="text-xl font-bold text-[#001220]">Contact Us</h6>
+          <h6 className="text-xl font-bold text-base-content text-center">Contact Us</h6>
           <p className="flex items-center text-xl">
-            <CiLocationOn className="text-[#001220]"/> Mirpur,DOHS Dhaka
+            <CiLocationOn className="text-base-content"/> Mirpur,DOHS Dhaka
           </p>
           <p className="">Phone: 09636-969696</p>
           <p className="">email: safia7540@gmail.com</p>
         </nav>
         <nav className="">
-          <h6 className="text-xl font-bold text-[#001220]">
+          <h6 className="text-xl font-bold text-base-content">
             Find Us On social Media
           </h6>
-          <div className="text-4xl flex gap-10">
+          <div className="text-4xl flex gap-10 text-base-content">
             <Link target="blank" to="https://www.facebook.com/">
-              <FaFacebook className="text-[#001220]" />
+              <FaFacebook className="" />
             </Link>
             <Link target="blank" to="https://twitter.com/">
-              <FaXTwitter className="text-[#001220]" />
+              <FaXTwitter className="" />
             </Link>
             <Link target="blank" to="https://www.youtube.com/">
-              <FaYoutube className="text-[#001220]" />
+              <FaYoutube className="" />
             </Link>
           </div>
         </nav>
         <nav>
-          <h6 className="text-xl font-bold text-[#001220]">
+          <h6 className="text-xl font-bold text-base-content">
             Download Our Apps
           </h6>
 
@@ -55,7 +55,7 @@ const Footer = () => {
       </footer>
       <footer className="footer footer-center p-4 bg-base-200 text-base-content font-bold">
         <aside>
-          <p>Copyright © 2020 - 2024 All right reserved by 
+          <p className="text-base-content">Copyright © 2020 - 2024 All right reserved by 
             Safia's Creative art studio
           </p>
         </aside>

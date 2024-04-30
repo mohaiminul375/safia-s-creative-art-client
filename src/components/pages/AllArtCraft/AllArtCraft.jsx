@@ -7,10 +7,10 @@ const AllArtCraft = () => {
   return (
     <div className="md:max-w-6xl mx-auto">
       <div className="my-12">
-        <h2 className="text-center text-5xl font-bold font-rancho">
+        <h2 className="text-center text-5xl font-bold font-rancho text-base-content">
           Explore Our All Art and Craft
         </h2>
-        <div className="w-full mt-10">
+        <div className="w-full mt-10 text-base-content">
           <div className="overflow-x-auto">
             <table className="table table-zebra text-center">
               {/* head */}

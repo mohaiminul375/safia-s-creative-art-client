@@ -22,33 +22,33 @@ const ArtCraftDetails = () => {
           <div className="mt-5 md:ml-10">
             <h2 className="text-xl">
               <span className="font-bold">Item Name:</span>{" "}
-              <span className=" text-gray-600 hover:text-[#001220] hover:font-bold">
+              <span className=" text-gray-600 hover:text-base-content hover:font-bold">
                 {item_name}
               </span>
             </h2>
             <h2 className="text-xl">
               <span className="font-bold">Sub-Category Name:</span>
-              <span className="text-xl text-gray-600 hover:text-[#001220] hover:font-bold">
+              <span className="text-xl text-gray-600 hover:text-base-content hover:font-bold">
                 {subcategory_Name}
               </span>
             </h2>
             <p className="mt-3">
               <span className="font-bold">Description:</span>{" "}
-              <span className=" text-gray-600 hover:text-[#001220] hover:font-bold">
+              <span className=" text-gray-600 hover:text-base-content hover:font-bold">
                 {description}
               </span>
             </p>
             <div className="flex justify-between mt-3">
               <p>
                 <span className="font-bold">Price:</span>{" "}
-                <span className=" text-gray-600 hover:text-[#001220] hover:font-bold">
+                <span className=" text-gray-600 hover:text-base-content hover:font-bold">
                   ${price}
                 </span>
               </p>
               <p>
                 <span className="font-bold">Rating:</span>{" "}
                 <span className="font-bold">Price:</span>{" "}
-                <span className=" text-gray-600 hover:text-[#001220] hover:font-bold">
+                <span className=" text-gray-600 hover:text-base-content hover:font-bold">
                   {rating}
                 </span>
               </p>
@@ -56,13 +56,13 @@ const ArtCraftDetails = () => {
             <div className="flex justify-between mt-3">
               <p>
                 <span className="font-bold">Customization:</span>{" "}
-                <span className=" text-gray-600 hover:text-[#001220] hover:font-bold">
+                <span className=" text-gray-600 hover:text-base-content hover:font-bold">
                   {customization}
                 </span>
               </p>
               <p>
                 <span className="font-bold">Stock:</span>{" "}
-                <span className=" text-gray-600 hover:text-[#001220] hover:font-bold">
+                <span className=" text-gray-600 hover:text-base-content hover:font-bold">
                   {stockStatus}
                 </span>
               </p>
@@ -70,7 +70,7 @@ const ArtCraftDetails = () => {
             <div className=" mt-3">
               <p>
                 <span className="font-bold">Processing time:</span>{" "}
-                <span className=" text-gray-600 hover:text-[#001220] hover:font-bold">
+                <span className=" text-gray-600 hover:text-base-content hover:font-bold">
                   {processing_time}
                 </span>
               </p>

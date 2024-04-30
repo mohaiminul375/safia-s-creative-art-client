@@ -244,7 +244,7 @@ const Register = () => {
         <div className="py-5 text-center mb-12">
           <p className="text-xl">
             Already have an account?{" "}
-            <Link to="/login" className="text-[#001220] underline">
+            <Link to="/login" className="text-base-content  underline">
               Please Login
             </Link>
           </p>

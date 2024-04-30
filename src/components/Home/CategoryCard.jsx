@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const CategoryCard = ({ category }) => {
   const { category_name,photo } = category;
   return (
-    <div className="max-w-lg p-4 shadow-md dark:bg-gray-50 dark:text-gray-800">
+    <div className="max-w-lg p-4 shadow-md dark:bg-gray-50 dark:text-gray-800 rounded-lg">
       <Link to={`/category/${category_name}`}>
         <div className="space-y-4 rounded-md">
           <div className="space-y-2">

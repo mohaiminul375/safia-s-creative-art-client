@@ -204,7 +204,7 @@ const Login = () => {
         <div className="py-5 text-center mb-12">
           <p className="text-xl">
             Are you new here{" "}
-            <Link to="/register" className="text-[#001220] underline">
+            <Link to="/register" className="text-base-content underline">
               Please Register
             </Link>
           </p>
