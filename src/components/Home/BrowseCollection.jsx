@@ -12,7 +12,7 @@ const BrowseCollection = () => {
   },[])
   return (
     <div className="mt-28">
-      <div className="flex justify-between">
+      <div className="flex justify-between px-8">
         <h3 className="text-4xl font-bold">Browse Our Categories</h3>
       </div>
       <div className="grid md:grid-cols-3 gap-5 mt-10">

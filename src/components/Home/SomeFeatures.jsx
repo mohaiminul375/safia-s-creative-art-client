@@ -1,5 +1,4 @@
-import { CiClock1, CiDeliveryTruck } from "react-icons/ci";
-import { GiReturnArrow } from "react-icons/gi";
+
 
 const SomeFeatures = () => {
   return (

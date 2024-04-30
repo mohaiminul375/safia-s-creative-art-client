@@ -8,7 +8,7 @@ const Navbar = () => {
   console.log("user from navbar", user);
 
 
-  const [theme, setTheme] = useState(localStorage.getItem("theme"));
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || 'light');
   useEffect(() => {
     // console.log("i am use effect");
     // const getTheme = localStorage.getItem("theme");

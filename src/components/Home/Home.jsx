@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+
 import Banner from "./Banner";
 import Banner2 from "./Banner2";
 import BrowseCollection from "./BrowseCollection";
@@ -8,14 +8,7 @@ import OurTeam from "./OurTeam";
 import SomeFeatures from "./SomeFeatures";
 
 const Home = () => {
-  // const getTheme = localStorage.getItem('theme');
-  // console.log('theme from home')
-  // const themeVale = useValue();
-  // console.log("theme value i  n home", themeVale);
-  // const elementRef = useRef();
-  // useEffect(() => {
-  //   console.log(elementRef.current.id);
-  // }, []);
+  
 
   return (
     <div className="">

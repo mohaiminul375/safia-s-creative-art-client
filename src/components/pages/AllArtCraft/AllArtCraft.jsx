@@ -1,5 +1,4 @@
 import { useLoaderData } from "react-router-dom";
-import SingleItem from "../SingleItem/SingleItem";
 import DataTable from "../DataTable/DataTable";
 
 const AllArtCraft = () => {
@@ -12,7 +11,6 @@ const AllArtCraft = () => {
           Explore Our All Art and Craft
         </h2>
         <div className="w-full mt-10">
-          {/* {allArtCraft.map(craft=><SingleItem key={craft._id} craft={craft}></SingleItem>)} */}
           <div className="overflow-x-auto">
             <table className="table table-zebra text-center">
               {/* head */}

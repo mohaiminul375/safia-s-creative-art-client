@@ -6,7 +6,9 @@ const ErrorPage = () => {
         <div className="max-h-screen">
             <img className="md:max-w-3xl mx-auto rounded-md mt-20" src={error} alt="" />
             <div className="text-center mt-10">
-            <button className="px-5 py-3 bg-[#001220] text-white rounded-lg"><Link to='/'>Back to home</Link></button>
+            <Link to='/'>
+            <button className="px-5 py-3 bg-[#001220] text-white rounded-lg">Back to home</button>
+            </Link>
             </div>
         </div>
     );

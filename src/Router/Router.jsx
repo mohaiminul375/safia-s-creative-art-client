@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
       },
       {
         path:'/myArt&Craft/update/:id',
-        element: <UpdateData></UpdateData> ,
+        element: <PrivateRoute><UpdateData></UpdateData></PrivateRoute> ,
         loader:({params})=>fetch(`https://safias-creative-art-server.vercel.app/Art&Crafts/${params.id}`)
       },
       {
