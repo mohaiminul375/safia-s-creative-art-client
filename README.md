@@ -3,28 +3,29 @@
 
 - Safia's creative art studio is an Art&Craft website on textile art and craft
 # Run the Project Locally
-1. Clone the Repository:
-   git clone # Run the Project Locally
-1. Clone the Repository:
+1. **Clone the Repository**:
+
+    ```sh
    git clone https://github.com/mohaiminul375/safia-s-creative-art-client.git
    cd safia-s-creative-art-client
+    ```
 
-2. Install Dependencies:
-   npm install
+2. **Install Dependencies**:
 
-3. Set Up Environment Variables: Create a .env.local file in the root directory and add the necessary environment variables. (Important!)
-4. Run the Application:
-   npm run dev
-5. Access the Site: Open your browser and go to http://localhost:5173/ or http://192.168.1.12:5173/ from other devices on the same network to view the application.
-   cd Group-Guru-client
+    ```sh
+    npm install
+    ```
 
-2. Install Dependencies:
-   npm install
+3. **Set Up Environment Variables**: Create a `.env.local` file in the root directory and add the necessary environment variables. (**Important!**)
 
-3. Set Up Environment Variables: Create a .env.local file in the root directory and add the necessary environment variables. (Important!)
-4. Run the Application:
-   npm run dev
-5. Access the Site: Open your browser and go to http://localhost:5173/ or http://192.168.1.12:5173/ from other devices on the same network to view the application.
+4. **Run the Application**:
+
+    ```sh
+    npm run dev -- --host
+    ```
+
+5. **Access the Site**: Open your browser and go to `http://localhost:5173/` or `http://192.168.1.12:5173/` from other devices on the same network to view the application.
+
 # Website Features
 - it's a textile art and craft website
 - smooth user experience 
